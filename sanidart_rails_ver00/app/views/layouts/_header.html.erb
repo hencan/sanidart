@@ -1,0 +1,76 @@
+<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light-custom shadow-sm" style="z-index: 1000;">
+  <div class="container-fluid">
+    <% if Profile.where(main: true).exists? %>
+      <%= link_to root_path, class:"navbar-brand mb-1 text-dark fs-2", style:"font-family: 'Ma Shan Zheng', cursive;" do %>
+        <i id="logo" class="bi bi-flower1 fw-bold me-2"></i><%= Profile.where(main: true)[0].name %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path, class:"navbar-brand fs-2", style:"font-family: 'Ma Shan Zheng', cursive;" do %>
+        <i id="logo"  class="bi bi-outlet me-2"></i>"C-3PO"
+      <% end %>
+    <% end %>
+    <button class="navbar-toggler text-dark border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation" onclick="this.blur()">
+      <%# <span class="navbar-toggler-icon"></span> %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" viewBox="0 0 24 24" fill="#000000e6" width="25px" height="25px"><path d="M0 0h24v24H0z" fill="none"/><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a id="goto_top" class="nav-link text-dark ms-2" onclick="window.scrollTo(0, 0)" style="cursor:pointer;">Início</a>
+          <%#= link_to "Início" , root_path, class:"nav-link fw-bold active" %>
+        </li>
+        <li class="nav-item">
+          <a id="goto_work_btn" class="nav-link text-dark ms-2" style="cursor: pointer;" onclick="getElementById('works_area').scrollIntoView({block: 'start', behavior: 'smooth'});">Trabalhos</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Entrar em Contato" , root_path, class:"nav-link text-dark ms-2" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0 me-2">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-dark dropdown-toggle ms-2 align-middle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+              <i class="bi bi-person-circle fs-5 me-1"></i><%= current_user.first_name %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Editar Conta" , edit_user_registration_path, class:"dropdown-item" %></li>
+              <li><a class="dropdown-item disabled" aria-disabled="true">Mesnsagens</a></li>
+              <li><a class="dropdown-item disabled" aria-disabled="true">Favoritos</a></li>
+              <% if current_user.admin %>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to "Customizar" , profiles_path, class:"dropdown-item" %></li>
+                <li><%= link_to "Páginas" , pages_path, class:"dropdown-item" %></li>
+                <li><%= link_to "Posts" , posts_path, class:"dropdown-item" %></li>
+                <li><%= link_to "Admin" , rails_admin_path, class:"dropdown-item" %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class:"btn btn-outline-danger btn-sm fw-bold rounded-pill m-2" do %>
+              <span class="mx-3">Sair</span>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to new_user_session_path, method: :get, class:"btn  btn-outline-light text-dark border-dark btn-sm fw-bold rounded-pill m-2" do %>
+              <span class="mx-3">Fazer login</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_user_registration_path, method: :get, class:"btn btn-primary btn-sm fw-bold rounded-pill m-2" do %>
+              <span class="mx-3">Inscrever-se</span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<%# <div id="navbar_space" class="bg-transp" style="width:100%; height:30px;"></div> %>
+<script>
+  // setInterval(function(){document.getElementById("logo").style.color = "#" + Math.floor(Math.random()*16777215).toString(16);}, 10000);
+</script>
+

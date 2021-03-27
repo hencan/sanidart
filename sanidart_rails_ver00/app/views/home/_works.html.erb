@@ -1,0 +1,67 @@
+<div class="sticky-top" id="works_area" style="z-index: 900;">
+  <nav class="navbar navbar-expand-lg bg-light-custom mt-5">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-3 text-dark fs-4 fw-bold"><i class="bi bi-grid-1x2-fill me-2"></i>Trabalhos</span>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light-custom shadow-sm">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center w-100" id="navbarSupportedContent2">
+        <% if @works.exists? %>
+          <%= form_tag works_path, :method => "get", :remote => true, :id => "works_filters", :style => "width: 100%;" do %>
+            <div class="row mt-2">
+              <div class="col-sm-6 mb-2">
+                <div class="input-group">
+                  <span class="input-group-text bg-dark text-light" style="border-radius: 50rem 0 0 50rem !important;"><i class="bi bi-search"></i></span>
+                  <%= text_field_tag :with_title, params[:with_title], class: "form-control", style:"border-radius: 0 50rem 50rem 0 !important;", placeholder: "Pesquisar título" %>
+                </div>
+              </div>
+              <div class="col-sm-4 mb-2">
+                <% category_array = Post.all.map { |post| [post.category, post.category] } %>
+                <% category_array = category_array.uniq %>
+                <% category_array.unshift(["Todos", ""]) %>
+                <div class="input-group">
+                  <span class="input-group-text bg-dark text-light" style="border-radius: 50rem 0 0 50rem !important;"><i class="bi bi-tags me-2"></i>Categorias</span>
+                  <%= select_tag :with_category, options_for_select(category_array, ""), class: "form-select rounded-pill", style:"border-radius: 0 50rem 50rem 0 !important;" %>
+                </div>
+              </div>
+              <div class="col-sm-2 mb-2 justify-content-md-end">
+                <div class="d-grid">
+                  <%= submit_tag "Filtrar", :name => nil, class:"btn btn-dark rounded-pill", id:"works_submit" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_tag works_path, :method => "get", :remote => true, :id => "works_filters", :style => "width: 100%;" do %>
+            <div class="row mt-2">
+              <div class="col-sm-6 mb-2">
+                <div class="input-group">
+                  <span class="input-group-text bg-dark text-light"><i class="bi bi-search"></i></span>
+                  <%= text_field_tag :with_title, params[:with_title], class: "form-control", placeholder: "Pesquisar título", disabled: true %>
+                </div>
+              </div>
+              <div class="col-sm-4 mb-2">
+                <% category_array = [] %>
+                <% category_array.push(["Todos", ""]) %>
+                <div class="input-group">
+                  <span class="input-group-text bg-dark text-light"><i class="bi bi-tags me-2"></i>Categorias</span>
+                  <%= select_tag :with_category, options_for_select(category_array, ""), class: "form-select", disabled: true %>
+                </div>
+              </div>
+              <div class="col-sm-2 mb-2">
+                <div class="d-grid">
+                  <%= submit_tag "Filtrar", :name => nil, class:"btn btn-dark", id:"works_submit", disabled: true %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</div>
+<div id='works' class="bg-light-custom">
+  <br>
+  <%= render 'home/results' %>
+</div>

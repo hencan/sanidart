@@ -1,0 +1,22 @@
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Páginas</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Nova Página</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="card-body">
+      <%# <h5 class="card-title">Nova Página</h5> %>
+      <div class="card-text">
+        <%= render 'form', page: @page %>
+      </div>
+      <div>
+        <%= link_to 'Voltar', pages_path, class:"btn btn-outline-dark"  %>
+      </div>
+    </div>
+    <div class="card-footer text-muted"></div>
+  </div>
+</div>

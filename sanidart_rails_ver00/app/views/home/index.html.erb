@@ -1,0 +1,158 @@
+<div id="homepage">
+  <div class="container-fluid img-banner">
+    <div class="row">
+      <div class="col-lg-4 col-xl-3">
+        <div class="mb-4" id="profile_area" style="position: sticky; top: 0;">
+          <div class="card bg-white text-center mb-4 shadow rounded px-3" id="profile_card">
+            <% if @profiles_export.exists? %>
+              <div id="card-body" class="card-body">
+                <% if @profiles_export[0].image.nil? %>
+                  <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="120" viewBox="0 0 24 24" width="120" class="card-img-top" id="profile_image"><g><rect fill="none" height="24" width="24"/><path d="M21.9,21.9l-8.49-8.49l0,0L3.59,3.59l0,0L2.1,2.1L0.69,3.51L3,5.83V19c0,1.1,0.9,2,2,2h13.17l2.31,2.31L21.9,21.9z M5,18 l3.5-4.5l2.5,3.01L12.17,15l3,3H5z M21,18.17L5.83,3H19c1.1,0,2,0.9,2,2V18.17z"/></g></svg>
+                <% else %>
+                  <%= image_tag(@profiles_export[0].image, class:"img-thumbnail rounded-circle", size: "120x120", id:"profile_image")%>
+                <% end %>
+                <h5 class="card-title mt-3 fs-3"><%= @profiles_export[0].name %></h5>
+                <p class="card-text text-dark"><%= @profiles_export[0].skills %></p>
+                <p class="card-text text-dark mb-4"><i class="bi bi-geo-alt-fill me-1"></i>Belém, PA</p>
+                <div class="d-grid gap-2 mb-4">
+                  <button type="button" class="btn btn-primary rounded-pill fw-bold"><i class="bi bi-envelope-fill me-2"></i>Mensagem</button>
+                  <button type="button" class="btn btn-light text-dark border-secondary rounded-pill fw-bold" onclick="getElementById('works_area').scrollIntoView({block: 'start', behavior: 'smooth'});"><i class="bi bi-grid-1x2-fill me-2"></i>Trabalhos</button>
+                </div>
+                <div>
+                  <% if @profiles_export[0].whatsapp %>
+                    <a role="button" class="btn btn-primary rounded-circle m-2" onclick="send_whats()"><i class="bi bi-whatsapp"></i></a>
+                  <% else %>
+                    <a role="button" class="btn btn-dark rounded-circle disabled m-2"><i class="bi bi-whatsapp"></i></a>
+                  <% end %>
+                  <% if @profiles_export[0].facebook %>
+                    <a role="button" class="btn btn-primary rounded-circle m-2" href="<%= @profiles_export[0].facebook %>" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <% else %>
+                    <a role="button" class="btn btn-dark rounded-circle disabled m-2"><i class="bi bi-facebook"></i></a>
+                  <% end %>
+                  <a role="button" class="btn btn-dark rounded-circle disabled m-2"><i class="bi bi-instagram"></i></a>
+                  <a role="button" class="btn btn-dark rounded-circle disabled m-2"><i class="bi bi-linkedin"></i></a>
+                  <a role="button" class="btn btn-dark rounded-circle disabled m-2"><i class="bi bi-twitter"></i></a>
+                  <a role="button" class="btn btn-dark rounded-circle disabled m-2"><i class="bi bi-youtube"></i></a>
+                  <a role="button" class="btn btn-dark rounded-circle disabled m-2"><i class="bi bi-telegram"></i></a>
+                  <a role="button" class="btn btn-dark rounded-circle disabled m-2"><i class="bi bi-envelope-fill"></i></a>
+                </div>
+              </div>
+            <% else %>
+              <img
+                src="https://images.unsplash.com/photo-1599272771314-f3ec16bda3f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                class="card-img-top" alt="..." id="profile_image">
+                <div id="card-body" class="card-body">
+                  <h5 class="card-title">C-3PO</h5>
+                  <p class="card-text text-muted">Intérprete e relações-sociais. Fluente em 6 milhões de meios de comunicação.</p>
+                  <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-dark fw-bold"><i class="bi bi-envelope-fill me-2"></i>Enviar Mensagem</button>
+                    <button type="button" class="btn btn-dark fw-bold"><i class="bi bi-grid-1x2-fill me-2"></i>Meus Trabalhos</button>
+                    <button type="button" class="btn btn-success fw-bold"><i class="bi bi-receipt-cutoff me-2"></i>Solicitar Orçamento</button>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button type="button" class="btn text-muted fs-5"><i class="bi bi-whatsapp"></i></button>
+                    <button type="button" class="btn text-muted fs-5"><i class="bi bi-facebook"></i></button>
+                    <button type="button" class="btn text-muted fs-5"><i class="bi bi-instagram"></i></button>
+                    <button type="button" class="btn text-muted fs-5"><i class="bi bi-linkedin"></i></button>
+                    <button type="button" class="btn text-muted fs-5"><i class="bi bi-twitter"></i></button>
+                    <button type="button" class="btn text-muted fs-5"><i class="bi bi-youtube"></i></button>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-xl-9">
+          <%# <div id="pages_margin_top" style="margin-top:25px;"></div> %>
+          <svg id="svg_wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 25 150 45" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+            </defs>
+            <g class="parallax">
+              <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.4)"></use>
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.2)"></use>
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.1)"></use>
+              <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255,255,255,0.6)"></use>
+              <%# <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"></use> %>
+            </g>
+          </svg>
+          <% if @pages_export.exists? %>
+            <div id="pages_links" class="d-flex justify-content-start bg-white rounded overflow-auto mx-2 pt-1 pb-3" style="-ms-transform: translateY(10px); transform: translateY(10px);">
+              <% @pages_export.each do |it| %>
+                <button type="button" class="btn btn-outline-dark rounded-pill text-nowrap fw-bold m-2 btn-link-pages" onclick="getElementById('page_<%= it.id %>').scrollIntoView({block: 'start', behavior: 'smooth'});"><%= it.title %></button>
+              <% end %>
+            </div>
+            <% @pages_export.each do |it| %>
+              <div class="card border-0 mb-5 bg-light-custom shadow" id="page_<%= it.id %>">
+                <div class="card-body pages">
+                  <div class="card-text">
+                    <div class="ql-editor"><%= it.content %></div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="card border-0 mb-4">
+              <img
+            src="https://images.unsplash.com/photo-1546435269-527d657231eb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1416&q=80"
+            class="card-img-top" alt="...">
+                <div class="card-body">
+                  <div class="card-text">
+                    O que é Lorem Ipsum?
+                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%= render "home/works" %>
+      <%= render 'layouts/footer' %>
+    </div>
+    <script>
+    
+      if(document.getElementById("profile_area")) {
+        document.getElementById("profile_image").addEventListener("load", ()=> {
+            var nav_height = document.getElementById("navbar").getBoundingClientRect().height;
+            document.getElementById("profile_area").style.top = `${nav_height + 30}px`;
+        })          
+      }
+
+      function homepage_scroll() {
+        if (document.getElementById("homepage")) {
+          var nav_height = document.getElementById("navbar").getBoundingClientRect().height;
+          // var navbar_space_height = document.getElementById("navbar_space").getBoundingClientRect().height;
+          // var total_height = nav_height + navbar_space_height
+      
+          if (document.getElementById("profile_area").getBoundingClientRect().top <= -nav_height) {
+            document.getElementById("profile_image").style.opacity = "0.1";
+          } else {
+            document.getElementById("profile_image").style.opacity = "1";
+          }
+        } else {
+          window.removeEventListener('scroll', homepage_scroll)
+        }
+      }
+      
+      // window.addEventListener('scroll', homepage_scroll)
+      
+      function send_whats() {
+        var uri = "Oi Jaque, tenho interesse nos seus serviços. Podemos conversar?";
+        var msg = encodeURI(uri);
+        var number = <%= @profiles_export[0].whatsapp %>
+        var link = `https://api.whatsapp.com/send/?phone=${number}&text=${msg}`;
+        console.log(link)
+        window.open(link, "_blank")
+      }
+      
+      function rich_text_replace_terms() {
+        var elements = document.querySelectorAll(".pages")
+      
+        for (var i=0; i < elements.length; i++) {
+          elements[i].innerHTML = elements[i].innerHTML.replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+        }
+      }
+      
+      rich_text_replace_terms()
+    </script>

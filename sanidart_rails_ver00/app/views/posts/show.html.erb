@@ -1,0 +1,51 @@
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header">Post</div>
+    <div class="card-body">
+      <h5 class="card-title">Post ID: <%= @post.id %></h5>
+      <div class="card-text">
+        <p>
+          <strong>Imagem:</strong>
+          <br>
+          <% if @post.image.nil? %>
+            <img style='width:300px' class="img-thumbnail" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QCORXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAABAAAAJgAAAAAABJADAAIAAAAUAAAAXJAEAAIAAAAUAAAAcJKRAAIAAAADMzIAAJKSAAIAAAADMzIAAAAAAAAyMDIxOjAzOjE0IDIxOjEzOjE0ADIwMjE6MDM6MTQgMjE6MTM6MTQAAAD/4QGgaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyI+PHhtcDpDcmVhdGVEYXRlPjIwMjEtMDMtMTRUMjE6MTM6MTQuMzIwPC94bXA6Q3JlYXRlRGF0ZT48L3JkZjpEZXNjcmlwdGlvbj48L3JkZjpSREY+PC94OnhtcG1ldGE+DQo8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwAKBwcIBwYKCAgICwoKCw4YEA4NDQ4dFRYRGCMfJSQiHyIhJis3LyYpNCkhIjBBMTQ5Oz4+PiUuRElDPEg3PT47/9sAQwEKCwsODQ4cEBAcOygiKDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7/8AAEQgBKgEsAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8Aq3iKb2clQT5jdvc1DsT+6Pyqe7/4/Z/+ujfzqKvpYJcqPIe43Yn90flRsT+6Pyp1FVZCG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qNif3R+VOoosgG7E/uj8qr3CgSDHHHarVVrn/AFg+lZ1EuUuO5eu/+P2f/ro386iqW7/4/Z/+ujfzqKqh8KJe4UUUVQgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKrXP+sH0qzVa5/1g+lRU+EqG5eu/+P2f/ro386iqW7/4/Z/+ujfzqKnD4UJ7hRRRVCCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqtc/6wfSrNVrn/WD6VFT4Sobl67/AOP2f/ro386iqW7/AOP2f/ro386ipw+FCe4UUUVQgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKrXP8ArB9Ks1Wuf9YPpUVPhKhuXrv/AI/Z/wDro386iqW7/wCP2f8A66N/OoqcPhQnuFFFFUIKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACq1z/rB9Ks1Wuf8AWD6VFT4Sobl67/4/Z/8Aro386iqW7/4/Z/8Aro386ipw+FCe4UUUVQgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKrXP+sH0qzVa5/1g+lRU+EqG5eu/+P2f/ro386iqW7/4/Z/+ujfzqKnD4UJ7hRRRVCCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqtc/6wfSrNVrn/WD6VFT4Sobl67/AOP2f/ro386iqW7/AOP2f/ro386ipw+FCe4UUUVQgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKrXP8ArB9Ks1Wuf9YPpUVPhKhuXrv/AI/Z/wDro386iqW7/wCP2f8A66N/OoqcPhQnuFFFFUIKKKKACiiigAoorQsLO0uAolmJkbOEXtj1pN2VxpXM+itC9s7OGJmhn/eIcFCc0zTrNbhmkmOIY+vOMn0pcytcOV3sUqKualZi0nGz/VuMr7eoqrHG80gjjUsx6AU001cGrOw2itldPt7ezmaTbLKqnJ7KcdKxaUZKWwNWFoorTeyW30hpJEHmuRyeq89KbkkCVzMoop8MMk8gSJSzH0piGUVojTIYf+Pq7VG/urT102yn+WC8y3YHB/So50Vysy6Kl8pI7rypn+RWwzLzWnJZ6ZDHG8jyKsgyuc03JISVzHorU+xadNxDeFWPTd/kVQuYDbTtEXVsdxQpJg00RUVqafpsUkIkuesnCDOPxrPuIGt53ibqp6+tCkm7A00iOiprW0ku5NqcAfeY9BV7ULW2t9PTygGZmHz9zxQ5JOwJaXMuiiiqEFFFFABRRRQAVWuf9YPpVmq1z/rB9Kip8JUN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">
+          <% else %>
+            <%= image_tag(@post.image, style:'width:300px', class: "img-thumbnail") %>
+          <% end %>
+        </p>
+        <p>
+          <strong>Título:</strong>
+          <%= @post.title %>
+        </p>
+        <p>
+          <strong>Subtítulo:</strong>
+          <%= @post.subtitle %>
+        </p>
+        <p>
+          <strong>Conteúdo:</strong>
+        </p>
+        <div id="content_area" class="ql-editor"><%= @post.content %></div>
+        <br>
+        <p>
+          <strong>Categoria:</strong>
+          <%= @post.category %>
+        </p>
+        <p>
+          <% if @post.visible %>
+            <i class="bi bi-check-square me-2"></i><strong>Visível</strong>
+          <% else %>
+            <i class="bi bi-square me-2"></i><strong>Visível</strong>
+          <% end %>
+        </p>
+      </div>
+      <div>
+        <%= link_to 'Editar', edit_post_path(@post), class:"btn btn-warning me-2" %>
+        <%= link_to 'Voltar', posts_path, class:"btn btn-outline-dark"  %>
+      </div>
+    </div>
+    <div class="card-footer text-muted"></div>
+  </div>
+</div>
+<script>
+  document.getElementById("content_area").innerHTML = document.getElementById("content_area").innerHTML.replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+</script>

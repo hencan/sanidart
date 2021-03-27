@@ -1,0 +1,46 @@
+<%= form_with(model: page) do |form| %>
+  <% if page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
+      <ul>
+        <% page.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :title, "Título", class:"form-label" %>
+    <%= form.text_field :title, class:"form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :content, "Conteúdo", class:"form-label" %>
+    <div id="quill_editor"></div>
+    <%= form.hidden_field :content, class:"form-control" %>
+  </div>
+  <div class="mb-3 form-check">
+    <%= form.check_box :visible, class:"form-check-input" %>
+    <%= form.label :visible, "Visível", class:"form-check-label" %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Salvar", class: "btn btn-primary my-2"  %>
+  </div>
+<% end %>
+<script>
+
+  function editor_value() {
+    if (document.getElementById("page_content")) {
+      document.querySelector('.ql-editor').innerHTML = document.getElementById("page_content").value
+      clearInterval(whatch_load);
+    }
+  }
+  
+  var whatch_load = setInterval(editor_value, 500);
+  
+  var form = document.querySelector('form');
+  form.onsubmit = function () {
+    document.getElementById("page_content").value = document.querySelector('.ql-editor').innerHTML
+  }
+
+</script>
+

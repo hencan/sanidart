@@ -1,0 +1,15 @@
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header">Posts</div>
+    <div class="card-body">
+      <h5 class="card-title">Novo Post</h5>
+      <div class="card-text">
+        <%= render 'form', post: @post %>
+      </div>
+      <div>
+        <%= link_to 'Voltar', posts_path, class:"btn btn-outline-dark"  %>
+      </div>
+    </div>
+    <div class="card-footer text-muted"></div>
+  </div>
+</div>

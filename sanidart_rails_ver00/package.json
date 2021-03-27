@@ -1,0 +1,24 @@
+{
+  "name": "sanidart-rails-server",
+  "private": true,
+  "dependencies": {
+    "@popperjs/core": "^2.8.4",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/actiontext": "^6.1.3",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "5.2.1",
+    "bootstrap": "^5.0.0-beta2",
+    "croppie": "^2.6.5",
+    "imagesloaded": "^4.1.4",
+    "jquery": "^3.5.1",
+    "masonry-layout": "^4.2.2",
+    "quill": "^1.3.7",
+    "trix": "^1.2.0",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  }
+}

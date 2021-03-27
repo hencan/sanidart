@@ -1,0 +1,47 @@
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header">Páginas</div>
+    <div class="card-body">
+      <h5 class="card-title">Índice</h5>
+      <div class="card-text overflow-auto">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Título</th>
+              <th>Visível</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @pages.each do |page| %>
+              <tr>
+                <td><%= page.id %></td>
+                <td><%= page.title %></td>
+                <% if page.visible %>
+                  <td><i class="bi bi-check-square"></i></td>
+                <% else %>
+                  <td><i class="bi bi-square"></i></td>
+                <% end %>
+                <td><%= link_to page, class:"btn btn-outline-dark border-0" do %>
+                    <i class="bi bi-eye-fill"></i>
+                  <% end %>
+                </td>
+                <td><%= link_to edit_page_path(page), class:"btn btn-outline-dark border-0" do %>
+                    <i class="bi bi-pencil-fill"></i>
+                  <% end %>
+                </td>
+                <td><%= link_to page, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger border-0" do %>
+                    <i class="bi bi-trash-fill"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <%= link_to 'Nova Página', new_page_path, class:"btn btn-outline-primary my-2" %>
+    </div>
+    <div class="card-footer text-muted"><%= will_paginate @pages, class:"digg_pagination" %></div>
+  </div>
+</div>
